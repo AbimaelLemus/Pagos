@@ -13,6 +13,10 @@ import com.easyapp.pagos_s2next.db.payments.PaymentsEntity
 )
 abstract class PagosDB : RoomDatabase() {
 
-    abstract fun customers(): CustomersDao
-    abstract fun payments(): PaymentsDao
+    companion object {
+        const val databaseName = "bitacoraPagos"
+    }
+
+    abstract fun customersDao(): CustomersDao
+    abstract fun paymentsDao(): PaymentsDao
 }
