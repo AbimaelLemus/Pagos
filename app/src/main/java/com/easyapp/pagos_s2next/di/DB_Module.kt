@@ -12,19 +12,27 @@ import dagger.hilt.android.components.ApplicationComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Singleton
 
-@InstallIn(ApplicationComponent::class)
 @Module
-class DB_Module {
+@InstallIn(ApplicationComponent::class)
+//@InstallIn(SingletonComponent::class)
+object DB_Module {
+
+    //val BASE_URL = "https://api.github.com/search"
+    /*fun getRetroInstance():Retrofit{
+        return Retrofit.buider().baseUrl(BASE_URL)
+    }*/
 
     @Singleton
     @Provides
     fun provideDB(@ApplicationContext appContext: Context): PagosDB =
-        Room.databaseBuilder(appContext, PagosDB::class.java, PagosDB.databaseName).fallbackToDestructiveMigration().build()
+        Room.databaseBuilder(appContext, PagosDB::class.java, PagosDB.databaseName).build()
 
+    //@Singleton
     @Provides
-    fun provideCustomers(db: PagosDB) : CustomersDao = db.customersDao()
+    fun provideCustomers(db: PagosDB): CustomersDao = db.customersDao()
 
+    //@Singleton
     @Provides
-    fun providePayments(db:PagosDB): PaymentsDao = db.paymentsDao()
+    fun providePayments(db: PagosDB): PaymentsDao = db.paymentsDao()
 
 }

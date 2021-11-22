@@ -20,10 +20,10 @@ object Util {
     }
 
     fun loge(message: String) {
-        Log.i( AppPagos.TAG, "message---> $message")
+        //Log.i( AppPagos.TAG, "message---> $message")
     }
 
-    fun setTimeStamp() =  System.currentTimeMillis().toString()
+    fun setTimeStamp() = System.currentTimeMillis().toString()
 
     fun main(work: suspend (() -> Unit)) = CoroutineScope(Dispatchers.Main).launch { work() }
 

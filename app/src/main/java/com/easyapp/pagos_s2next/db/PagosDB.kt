@@ -9,7 +9,8 @@ import com.easyapp.pagos_s2next.db.payments.PaymentsEntity
 
 @Database(
     entities = [CustomersEntity::class, PaymentsEntity::class],
-    version = 1
+    version = 2,
+    exportSchema = false
 )
 abstract class PagosDB : RoomDatabase() {
 

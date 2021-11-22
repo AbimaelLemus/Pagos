@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 import java.lang.Exception
 import javax.annotation.Resource
 
-class PagoViewModel @ViewModelInject constructor(private val repo: PagosRepository) : ViewModel() {
+class PagoViewModel @ViewModelInject constructor(val repo: PagosRepository) : ViewModel() {
 
     suspend fun insertCustomer(customer: CustomersEntity) = repo.insertCustomer(customer)
 
